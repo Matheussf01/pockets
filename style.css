@@ -1,7 +1,100 @@
+@font-face {
+  font-family: PressStart2P;
+  src: url(font/PressStart2P.ttf);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 html, body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
+
+section.start{
+  background-image: url("img/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo{
+  margin-top: -60px;
+  margin-bottom: 60px;
+  animation-duration: 4s;
+}
+
+
+
+
+.row-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-start{ 
+  filter: brightness(100%);
+  transition: 0.4s all;
+}
+
+.btn-start:hover{ 
+  filter: brightness(75%);
+}
+
+
+
 canvas {
   display: block;
+  
+}
+
+.canva{
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.modal-title{
+  margin: 14px 22px ;
+}
+
+.modal-content{
+  background-image: url(img/modal.png) ;
+  width: 580px ;
+  height: 422px ;
+  border-radius: 0px ;
+  font-family: PressStart2P ;
+  color: #5e0b04;
+}
+
+
+.modal-header,
+.modal-footer{
+  border: 0px ;
+}
+
+.modal-body{
+  font-size: 11px ;
+  padding: 10px 38px ;
+  line-height: 22px ;
+}
+
+.close{
+  opacity: 1 ;
+}
+.close img{
+  width: 32px;
+  margin: 10px;
 }

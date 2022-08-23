@@ -3,7 +3,7 @@ let isPaused = false;
 let block;
 let btPause, btUp, btRight, btLeft;
 function setup() {
-  createCanvas(800, 400);
+  createCanvas(1430, 700);
   
   cenario = new Cenario(110,220,180);
   
@@ -66,11 +66,18 @@ function mouseReleased(){
     isPaused = !isPaused;
   }
 }
+
+
 function openModal(){
-  //isPaused = true;
-  
-  //código para abrir o modal vem aqui
-  print("ABRINDO MODAL");
-  
+  isPaused = true;
+  $('#exampleModal').modal('show');
+  console.log("passou1");
 }
+
+
+var close = document.getElementById("close");
+close.addEventListener("click", function(event) {
+  isPaused = false;
+})
+
 

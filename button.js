@@ -7,10 +7,10 @@ class Button{
     this.h = _h;
   }
   render(){
-    rectMode(CENTER);
+    imageMode(CENTER);
     
-    fill("#00ff00");
-    rect(this.pos.x, this.pos.y,this.w,this.h,10,10,10,10);
+   
+    image(this.img,this.pos.x, this.pos.y,this.w,this.h);
     
   }
   

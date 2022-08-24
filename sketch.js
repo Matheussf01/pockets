@@ -1,18 +1,65 @@
 let cenario, player;
 let isPaused = false;
 let block;
-let btPause, btUp, btRight, btLeft;
+let btPause, btUp, btRight, btLeft,btMid;
+let bg, ground, montains, ctrl_mid,ctrl_up,ctrl_left,ctrl_right, logo, reset_bt, bushes;
+let boxes_img = [];
+let sprites = [];
+let boxes = [];
+let ratio;
+
+function preload() {
+  
+  
+  bg = loadImage('assets/bg.png');
+  ground = loadImage('assets/chao.png');
+  bushes = loadImage('assets/arbustos.png');
+  montains = loadImage('assets/montanhas.png');
+  
+  for(let i = 1; i<=6;i++){
+    let img = loadImage('assets/btn'+i+'.png');
+    boxes_img.push(img);
+    
+  }
+  
+  for(let i = 0; i<=3;i++){
+    let img = loadImage('assets/sprite_'+i+'.png');
+    sprites.push(img);
+    
+  }
+  
+  ctrl_mid = loadImage('assets/ctrl_middle.png');
+  ctrl_up = loadImage('assets/ctrl_up.png');
+  ctrl_left = loadImage('assets/ctrl_left.png');
+  ctrl_right = loadImage('assets/ctrl_right.png');
+  logo = loadImage('assets/logo.png');
+  reset_bt = loadImage('assets/reset.png');
+  
+ 
+}
 function setup() {
-  createCanvas(1430, 700);
+  createCanvas(1024/2, 774/2);
   
-  cenario = new Cenario(110,220,180);
+  ratio = height/400;
   
-  player = new Player("#ff0000",cenario.groundLine);
-  block = new Interactable("#0000ff", (width/5)*3,height/2);
+  cenario = new Cenario(bg,ground,bushes,montains);
+  
+  player = new Player(sprites,cenario.groundLine);
   btPause = new Button("#00ff00", 100, 50,120,20);
-  btUp= new Button("#00ff00", (width/6)*5, (height/6)*5-55,50,50);
-  btRight= new Button("#00ff00", (width/6)*5+30, (height/6)*5,50,50);
-  btLeft= new Button("#00ff00", (width/6)*5-30, (height/6)*5, 50, 50);
+  btMid= new Button(ctrl_mid, (width/6)*5, (height/8)*7,50,50);
+  btUp= new Button(ctrl_up, btMid.pos.x, btMid.pos.y-50,50,50);
+  btRight= new Button(ctrl_right, btMid.pos.x+50, btMid.pos.y,50,50);
+  btLeft= new Button(ctrl_left, btMid.pos.x-50, btMid.pos.y, 50, 50);
+  
+  let distrib= (cenario.groundW*4)/10;
+  for(let i = 0; i<5;i++){
+    
+    boxes.push(new Interactable(boxes_img[i], distrib+distrib*(i+1),height/2));
+    
+  }
+  
+  
+  
 }
 
 function draw() {
@@ -22,7 +69,12 @@ function draw() {
   
   cenario.render();
   
-  block.render();
+  for(let i = 0; i<5;i++){
+    boxes[i].render();
+    boxes[i].intersect(player);
+  }
+    
+  player.update();    
   player.render();
   if(!isPaused){
     if(keyIsDown(RIGHT_ARROW))player.move(0.5);
@@ -41,21 +93,19 @@ function draw() {
     
     }
     
-    player.update();  
-    block.intersect(player);
     
-  }else{
-    fill(0,150);
-    rect(width/2,height/2,width,height);
+    
     
   }
   
-  btPause.render();
+  //btPause.render();
+  btMid.render();
   btUp.render();
   btRight.render();
   btLeft.render();
   
-  
+  imageMode(CENTER);
+  image(logo,width/2,(width/3*0.35)/2+20,width/3,width/3*0.35);
   
 }
 
@@ -67,7 +117,6 @@ function mouseReleased(){
   }
 }
 
-
 function openModal(){
   isPaused = true;
   $('#exampleModal').modal('show');
@@ -75,9 +124,20 @@ function openModal(){
 }
 
 
-var close = document.getElementById("close");
-close.addEventListener("click", function(event) {
+var closeBtn = document.getElementById("close");
+closeBtn.addEventListener("click", function(event) {
   isPaused = false;
 })
+
+var modal = document.getElementById("exampleModal");
+modal.addEventListener("click", function(event) {
+  isPaused = false;
+})
+
+document.onkeydown = function(e) {
+  if(e.key === 'Escape') {
+    isPaused = false;
+  }
+}
 
 

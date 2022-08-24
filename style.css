@@ -12,10 +12,15 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-image: url("assets/bg-back.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 section.start{
-  background-image: url("img/background.png");
+  background-image: url("assets/background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -71,7 +76,7 @@ canvas {
 }
 
 .modal-content{
-  background-image: url(img/modal.png) ;
+  background-image: url(assets/modal.png) ;
   width: 580px ;
   height: 422px ;
   border-radius: 0px ;

@@ -11,6 +11,10 @@ let ratio;
 function preload() {
   
   
+  // bg = loadImage('assets/new/bg.png');
+  // ground = loadImage('assets/new/chao.png');
+  // bushes = loadImage('assets/new/arbustos.png');
+  // montains = loadImage('assets/new/montanhas.png');
   bg = loadImage('assets/bg.png');
   ground = loadImage('assets/chao.png');
   bushes = loadImage('assets/arbustos.png');
@@ -52,9 +56,9 @@ function setup() {
   btLeft= new Button(ctrl_left, btMid.pos.x-50, btMid.pos.y, 50, 50);
   
   let distrib= (cenario.groundW*4)/10;
-  for(let i = 0; i<5;i++){
+  for(let i = 0; i<=5;i++){
     
-    boxes.push(new Interactable(boxes_img[i], distrib+distrib*(i+1),height/2));
+    boxes.push(new Interactable(boxes_img[i], distrib*(i+1),height/2));
     
   }
   
@@ -69,7 +73,7 @@ function draw() {
   
   cenario.render();
   
-  for(let i = 0; i<5;i++){
+  for(let i = 0; i<=5;i++){
     boxes[i].render();
     boxes[i].intersect(player);
   }
@@ -92,10 +96,7 @@ function draw() {
       }
     
     }
-    
-    
-    
-    
+
   }
   
   //btPause.render();
@@ -105,7 +106,7 @@ function draw() {
   btLeft.render();
   
   imageMode(CENTER);
-  image(logo,width/2,(width/3*0.35)/2+20,width/3,width/3*0.35);
+  image(logo,width/2,(width/3*0.35)/2+50,width/3,width/3*0.35);
   
 }
 

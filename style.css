@@ -60,7 +60,7 @@ section.start{
 
 canvas {
   display: block;
-  
+  border: 3px solid rgb(95, 17, 137);
 }
 
 .canva{
@@ -77,6 +77,8 @@ canvas {
 
 .modal-content{
   background-image: url(assets/modal.png) ;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 580px ;
   height: 422px ;
   border-radius: 0px ;

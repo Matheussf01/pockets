@@ -1,11 +1,12 @@
 class Interactable{
-  constructor(face,x,y){
+  constructor(face,x,y,name){
     this.face=face;
     this.pos = createVector(x,y);
     this.size=60*ratio;
     this.intersected = false;
     this.coolDown = 0;
     this.state=0;
+    this.name=name;
     
   }
   
@@ -30,7 +31,7 @@ class Interactable{
     
     if(this.coolDown<=0 && _p.pos.y-(_p.size/2)< this.pos.y+(this.size/2) && _p.pos.y+(_p.size/2)> this.pos.y-(this.size/2) && _p.pos.x-(_p.size/2)< this.pos.x+(this.size/2)+cenario.offset && _p.pos.x+(_p.size/2)> this.pos.x-(this.size/2)+cenario.offset ){
       this.intersected = true;
-      openModal();
+      openModal(this.name);
       this.coolDown= 50;
     }else{
       this.intersected = false;

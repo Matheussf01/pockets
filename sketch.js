@@ -58,7 +58,7 @@ function setup() {
   let distrib= (cenario.groundW*4)/10;
   for(let i = 0; i<=5;i++){
     
-    boxes.push(new Interactable(boxes_img[i], distrib*(i+1),height/2));
+    boxes.push(new Interactable(boxes_img[i], distrib*(i+1),height/2, "btn_"+(i+1)));
     
   }
   
@@ -118,7 +118,8 @@ function mouseReleased(){
   }
 }
 
-function openModal(){
+function openModal(nameModal){
+  alert(nameModal);
   isPaused = true;
   $('#exampleModal').modal('show');
   console.log("passou1");

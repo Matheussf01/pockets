@@ -86,6 +86,9 @@ canvas {
   color: #5e0b04;
 }
 
+.modal-dialog-centered{
+  display: grid;
+}
 
 .modal-header,
 .modal-footer{

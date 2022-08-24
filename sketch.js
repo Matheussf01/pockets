@@ -38,7 +38,7 @@ function preload() {
  
 }
 function setup() {
-  createCanvas(1024/2, 774/2);
+  createCanvas(1024, 774);
   
   ratio = height/400;
   

@@ -61,7 +61,7 @@ function setup() {
   btLeft= new Button(ctrl_left, btMid.pos.x-60, btMid.pos.y, 60, 60);
   btReset= new Button(reset_bt, (width/6)*5.5, 75, 60, 60);
   
-  let distrib= (cenario.groundW*4)/10;
+  let distrib= (cenario.groundW*4)/10.4;
   for(let i = 0; i<=3;i++){
     
     boxes.push(new Interactable(boxes_img[i], distrib*(i+1),height/2, "btn_"+(i+1)));

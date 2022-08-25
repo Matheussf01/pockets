@@ -66,7 +66,7 @@ image(this.ground,this.offset+(this.groundW*i),this.groundLine,this.groundW,this
 
     this.offset-=_val;
     if(this.offset>0) this.offset = 0;
-    else if(this.offset<-this.groundW*2) this.offset=-this.groundW*2
+    else if(this.offset<-this.groundW*1) this.offset=-this.groundW*1
     
     
     

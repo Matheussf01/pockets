@@ -7,6 +7,11 @@ let boxes_img = [];
 let sprites = [];
 let boxes = [];
 let ratio;
+let tituloModal = "";
+let textoModal = "";
+let linkModal = "";
+let linkTXTModal = "";
+let exibSelect = false;
 
 function preload() {
   
@@ -20,7 +25,7 @@ function preload() {
   bushes = loadImage('assets/arbustos.png');
   montains = loadImage('assets/montanhas.png');
   
-  for(let i = 1; i<=6;i++){
+  for(let i = 1; i<=4;i++){
     let img = loadImage('assets/btn'+i+'.png');
     boxes_img.push(img);
     
@@ -56,7 +61,7 @@ function setup() {
   btLeft= new Button(ctrl_left, btMid.pos.x-50, btMid.pos.y, 50, 50);
   
   let distrib= (cenario.groundW*4)/10;
-  for(let i = 0; i<=5;i++){
+  for(let i = 0; i<=3;i++){
     
     boxes.push(new Interactable(boxes_img[i], distrib*(i+1),height/2, "btn_"+(i+1)));
     
@@ -73,7 +78,7 @@ function draw() {
   
   cenario.render();
   
-  for(let i = 0; i<=5;i++){
+  for(let i = 0; i<=3;i++){
     boxes[i].render();
     boxes[i].intersect(player);
   }
@@ -119,10 +124,56 @@ function mouseReleased(){
 }
 
 function openModal(nameModal){
-  alert(nameModal);
+  
+
+
+  switch (nameModal) {
+    case 'btn_1':
+      tituloModal ="Inscrição campus em chamas";
+      textoModal = "O campus em chamas é o nosso treinamento online, ele conta com aulas sobre evangelismo sobrenatural, ideologias políticas, adoração e MUITO MAIS! Um curso completo para você que quer ver seu campus universitário em chamas!";
+      linkModal ="https://clkdmg.site/pay/campus-on-fire ";
+      linkTXTModal ="Inscreva-se aqui!";
+      exibSelect = false;
+
+      break;
+    case 'btn_2':
+      tituloModal ="Abra seu pockets";
+      textoModal = "Está preparado para viver dias imersos na presença de Deus, sendo capacitado em liderança e recebendo ferramentas para ver o seu campus em chamas. Garanta aqui a sua pré-inscrição no maior treinamento de missões universitárias que você. ";
+      linkModal ="https://form.jotform.com/222336122995053";
+      linkTXTModal ="Inscreva-se aqui!";
+      exibSelect = false;
+      break;
+    case 'btn_3':
+      tituloModal ="Pockets Immersion 2023.1";
+      textoModal = "Já pensou viver o sobrenatural de Deus na sua universidade? Então você precisa abrir um pockets e ser um agente de transformação da sua geração! ";
+      linkModal ="https://dunamismovement.byinti.com/#/event/pre-inscricao-pockets-immersion-2023-66499";
+      linkTXTModal ="Inscreva-se aqui!";
+      exibSelect = false;
+      break;
+    case 'btn_4':
+      tituloModal ="Ache seu pockets ";
+      textoModal = "Quer saber se já existe um pockets na sua universidade? Confira aqui todos os pockets espalhados pelo Brasil e pelo mundo. Nós já estamos em 11 nações e em mais de 400 universidades, faça parte você também!  ";
+      linkModal ="";
+      linkTXTModal ="";
+      exibSelect = true;
+      break;
+    default:
+      console.log("erro ao abrir modal");
+  }
+
+
+  var titulo = document.getElementById("modal-title");
+  var texto = document.getElementById("texto-modal");
+  var link = document.getElementById("link-modal");
+
+  titulo.innerHTML = tituloModal;
+  texto.innerHTML = textoModal;
+  link.href = linkModal;
+  link.innerHTML = linkTXTModal;
+
   isPaused = true;
   $('#exampleModal').modal('show');
-  console.log("passou1");
+
 }
 
 

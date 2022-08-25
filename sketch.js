@@ -182,14 +182,24 @@ function openModal(nameModal){
   var titulo = document.getElementById("modal-title");
   var texto = document.getElementById("texto-modal");
   var linkHref = document.getElementById("link-modal");
+  var selectspockets = document.getElementById("selelects-pockets");
+  
 
   titulo.innerHTML = tituloModal;
   texto.innerHTML = textoModal;
 
   if(exibSelect==true){
     linkHref.classList.remove('show');
-    linkHref.classList.add('hide');
+    linkHref.classList.add('hide');    
+    
+    selectspockets.classList.remove('hide');
+    selectspockets.classList.add('show');
+
   }else{
+
+    selectspockets.classList.add('hide');
+    selectspockets.classList.remove('show');
+
     linkHref.classList.remove('hide');
     linkHref.classList.add('show');
     linkHref.href = linkModal;

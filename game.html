@@ -24,6 +24,37 @@
           <div class="modal-body" id="modal-body">
             <div class="texto-modal" id="texto-modal"></div>
             <a class="link-modal" target="_blank" id="link-modal" href="#"></a>
+            
+            <div id="selelects-pockets">
+       
+              <select id="pais" name="pais">
+                <option value=""  selected>Selecione...</option>
+                <option value="BR">Brasil</option>
+                <option value="EUA">Estados Unidos</option>
+              </select>
+         
+              <select id="estado" name="estado">
+                <option value="" class="BR EUA" selected>Selecione...</option>
+                <option value="AC" class="BR">Acre</option>
+                <option value="Michigan" class="EUA">Michigan</option>
+              </select>
+              
+           
+              <select id="univ" name="univ">
+                <option value="" class="AC Michigan" selected>Selecione...</option>
+                <option value="Madonna University" class="Michigan">Madonna University</option>
+                <option value="Universidade Salvador" class="AC">Universidade Salvador </option>
+              </select>
+
+              <ul id="lider" name="lider">
+                <li class="Michigan AC" selected>Selecione...</li>
+
+                <li class="Michigan">Michigan</li>
+                <li class="AC">Universidade Salvador</li>
+              </ul>
+
+            </div>
+
           </div>
           
         </div>
@@ -40,5 +71,44 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
+<script>
+  jQuery(function(){
+  var optionsestado = $('#estado option');
+  var estado = $('#estado').empty();
+  $('#pais').on('change', function() {
+      var classe = this.value;
+      var opts = optionsestado.filter(function() {
+          
+          return $(this).hasClass(classe)
+      });
+      estado.html('').append(opts);
+  });
+
+  var optionsUniv = $('#univ option');
+  var univ = $('#univ').empty();
+
+  $('#estado').on('change', function() {
+      var classe = this.value;
+      var opts = optionsUniv.filter(function() {
+          return $(this).hasClass(classe)
+      });
+      univ.html('').append(opts);
+  });
+
+
+  var optionsLider = $('#lider li');
+  var lider = $('#lider').empty();
+
+  $('#univ').on('change', function() {
+      var classe = this.value;
+      var opts = optionsLider.forEach(function() {
+          return $(this).hasClass(classe)
+      });
+      lider.html('').append(opts);
+  });
+
+
+  });
+</script>
 
 </body></html>

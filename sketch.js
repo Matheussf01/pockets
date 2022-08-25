@@ -55,10 +55,11 @@ function setup() {
   
   player = new Player(sprites,cenario.groundLine);
   btPause = new Button("#00ff00", 100, 50,120,20);
-  btMid= new Button(ctrl_mid, (width/6)*5, (height/8)*7,50,50);
-  btUp= new Button(ctrl_up, btMid.pos.x, btMid.pos.y-50,50,50);
-  btRight= new Button(ctrl_right, btMid.pos.x+50, btMid.pos.y,50,50);
-  btLeft= new Button(ctrl_left, btMid.pos.x-50, btMid.pos.y, 50, 50);
+  btMid= new Button(ctrl_mid, (width/6)*5, (height/8)*7,60,60);
+  btUp= new Button(ctrl_up, btMid.pos.x, btMid.pos.y-60,60,60);
+  btRight= new Button(ctrl_right, btMid.pos.x+60, btMid.pos.y,60,60);
+  btLeft= new Button(ctrl_left, btMid.pos.x-60, btMid.pos.y, 60, 60);
+  btReset= new Button(reset_bt, (width/6)*5.5, 75, 60, 60);
   
   let distrib= (cenario.groundW*4)/10;
   for(let i = 0; i<=3;i++){
@@ -98,21 +99,37 @@ function draw() {
         player.move(-0.5);
       }else if(btUp.triggered()){ 
         player.jump();
+      }else if(btReset.triggered()){
+        funcaoReset();
       }
     
     }
 
   }
+
+
   
   //btPause.render();
   btMid.render();
   btUp.render();
   btRight.render();
   btLeft.render();
+  btReset.render();
+
+  
   
   imageMode(CENTER);
+  
   image(logo,width/2,(width/3*0.35)/2+50,width/3,width/3*0.35);
   
+}
+
+
+function funcaoReset(){
+
+  window.location.href = "http://localhost:8888/Pockets%20Versionado/pockets/index.html";
+
+
 }
 
 function mouseReleased(){

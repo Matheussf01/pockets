@@ -101,6 +101,19 @@ canvas {
   line-height: 22px ;
 }
 
+.texto-modal{
+  padding-bottom: 30px;
+}
+
+.link-modal{
+  color: #fff;
+  background: #5e0b05;
+  padding: 16px;
+  margin-bottom: -20px;
+}
+.link-modal:hover{
+  color: #fff !important;
+}
 .close{
   opacity: 1 ;
 }

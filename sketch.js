@@ -164,16 +164,29 @@ function openModal(nameModal){
 
   var titulo = document.getElementById("modal-title");
   var texto = document.getElementById("texto-modal");
-  var link = document.getElementById("link-modal");
+  var linkHref = document.getElementById("link-modal");
 
   titulo.innerHTML = tituloModal;
   texto.innerHTML = textoModal;
-  link.href = linkModal;
-  link.innerHTML = linkTXTModal;
 
+  if(exibSelect==true){
+    linkHref.classList.remove('show');
+    linkHref.classList.add('hide');
+  }else{
+    linkHref.classList.remove('hide');
+    linkHref.classList.add('show');
+    linkHref.href = linkModal;
+    linkHref.innerHTML = linkTXTModal;
+  }
+
+
+  exibSelect = false;
+  tituloModal = "";
+  textoModal = "";
+  linkModal = "";
+  linkTXTModal = "";
   isPaused = true;
   $('#exampleModal').modal('show');
-
 }
 
 
@@ -190,6 +203,7 @@ modal.addEventListener("click", function(event) {
 document.onkeydown = function(e) {
   if(e.key === 'Escape') {
     isPaused = false;
+    
   }
 }
 

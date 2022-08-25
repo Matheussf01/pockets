@@ -3,6 +3,14 @@
   src: url(font/PressStart2P.ttf);
 }
 
+.show{
+  display: initial !important;
+}
+
+.hide{
+  display: none !important;
+}
+
 button:focus {
   outline: none;
   box-shadow: none;

@@ -51,6 +51,7 @@ if (!$conn) {
 </html>
 
 <?php
+echo '$query';
 
 if (isset($_POST["start"])) {
    $email = $_POST['email'];

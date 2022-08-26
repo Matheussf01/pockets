@@ -9,7 +9,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected successfully";
+//echo "Connected successfully";
 
 
 ?> 
@@ -32,9 +32,13 @@ echo "Connected successfully";
           <img src="assets/logo.png" alt="">
         </div>
         <div class="row-btn">
-          <a href="game.html" class="btn-start">
-            <img src="assets/start.png" alt="">
-          </a>
+            <form action="#" method="POST">
+
+                <input type="email" name="email" class="email-form">
+                <input type="submit" name="start" class="btn-start">
+               
+            </form>
+          
         </div>
 
       </div>  
@@ -47,5 +51,14 @@ echo "Connected successfully";
 </html>
 
 <?php
+
+if (isset($_POST["start"])) {
+   $email = $_POST['email'];
+   $data = date();
+
+   $query = "INSERT INTO 'entradas' ('email', 'data') VALUES ('.$email.','.$data.')";
+   mysql_query($query,$conn);
+}
+
 mysqli_close($conn);
 ?>

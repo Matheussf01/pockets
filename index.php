@@ -64,12 +64,11 @@ if (!$conn) {
 if (isset($_POST["start"])) {
    $email = $_POST['email'];
 
-   $query = "INSERT INTO entradas (email) VALUES ('$email');";  
-   mysql_query($query,$conn);
+   $query = "INSERT INTO entradas (email) VALUES ('".$email."');";  
+   mysqli_query($query,$conn);
+
    echo $query;
-   //if (!)){
-  //echo "Error creating database: " . mysql_error();
-  //}
+
 }
 
 

@@ -127,7 +127,7 @@ function draw() {
 
 function funcaoReset(){
 
-  window.location.href = "http://localhost:8888/Pockets%20Versionado/pockets/index.html";
+  window.location.href = "https://pocketsadventure.online/";
 
 
 }
@@ -191,7 +191,7 @@ function openModal(nameModal){
   if(exibSelect==true){
     linkHref.classList.remove('show');
     linkHref.classList.add('hide');    
-    
+
     selectspockets.classList.remove('hide');
     selectspockets.classList.add('show');
 

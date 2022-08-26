@@ -55,9 +55,9 @@ echo '$query';
 
 if (isset($_POST["start"])) {
    $email = $_POST['email'];
-   $data = date();
+   $data=date("Y-m-d",strtotime($date));
 
-   $query = "INSERT INTO entradas (email, data) VALUES ('$email', CURDATE())";
+   $query = "INSERT INTO entradas (email, data) VALUES ('$email', '$data')";
 
    echo $query;
    mysql_query($query,$conn);

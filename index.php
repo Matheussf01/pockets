@@ -59,7 +59,7 @@ if (isset($_POST["start"])) {
 
    $query = "INSERT INTO entradas (email, data) VALUES ('$email', '$data')";
 
-   echo $query;
+   //echo $query;
    mysql_query($query,$conn);
 }
 

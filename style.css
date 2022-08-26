@@ -16,16 +16,7 @@ button:focus {
   box-shadow: none;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-image: url("assets/bg-back.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 
-}
 
 select{
   padding: 6px;

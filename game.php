@@ -4,6 +4,18 @@
     <script src="p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
+    <style>
+      html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url("assets/bg-back.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+    </style>
   </head>
   <body>
     <div class="canva">

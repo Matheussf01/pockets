@@ -57,7 +57,16 @@ if (isset($_POST["start"])) {
    $query = "INSERT INTO entradas (email) VALUES ('".$email."')";
 
    echo $query;
-   mysql_query($query,$conn);
+   
+
+   if (mysql_query($query,$conn))
+  {
+  echo "Database my_db created";
+  }
+else
+  {
+  echo "Error creating database: " . mysql_error();
+  }
 }
 
 mysqli_close($conn);

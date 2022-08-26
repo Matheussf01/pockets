@@ -1,13 +1,16 @@
 <?php
-$link = mysqli_connect("http://www.pocketsadventure.online", "u722625667_pockets", "@Pockets2022", "u722625667_pockets");
- 
-if (!$link) {
-    echo "Error: Falha ao conectar-se com o banco de dados MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
+$servername = "localhost";
+$database = "u722625667_pockets";
+$username = "u722625667_pockets";
+$password = "@Pockets2022";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
- 
+echo "Connected successfully";
+
 
 ?> 
 
@@ -44,5 +47,5 @@ if (!$link) {
 </html>
 
 <?php
-mysqli_close($link);
+mysqli_close($conn);
 ?>

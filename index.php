@@ -52,7 +52,7 @@ if (!$conn) {
 
 <?php
 
-if (isset($_POST["start"])) {
+if (!isset($_POST["start"])) {
    $email = $_POST['email'];
 
    $query = "INSERT INTO 'entradas' ('email') VALUES ('.$email.')";
